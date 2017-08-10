@@ -2,9 +2,7 @@
 
 ## shiro 是什么?
 
-- Simple
-- Java
-- Security
+- 简单、轻量的 Java 安全框架
 
 ## shiro 可以做些什么？
 
