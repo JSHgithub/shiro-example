@@ -67,6 +67,7 @@ AuthenticationStrategy
 |web|支持|支持|
 |非 web|支持|支持|
 |spring|可集成、可独立|不能脱离 spring|
+|session|支持|支持|
 |cache|支持|支持|
 |remember me|支持|支持|
 |OAuth|支持|支持|
