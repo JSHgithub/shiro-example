@@ -70,6 +70,7 @@ AuthenticationStrategy
 |session|支持|支持|
 |cache|支持|支持|
 |remember me|支持|支持|
+|encrypt|支持|支持|
 |OAuth|支持|支持|
 |SSO|支持|支持|
 |学习成本|低|高|
