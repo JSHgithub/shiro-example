@@ -60,6 +60,17 @@ AuthenticationStrategy
 - AtLeastOneSuccessfulStrategy：返回所有Realm身份验证成功的认证信息
 - AllSuccessfulStrategy：返回所有 Realm 身份验证成功的认证信息
 
+## 授权
+
+授权粒度
+- 角色：粗粒度
+- 资源：细粒度
+
+授权方式
+- 编程式
+- 注解式
+- JSP 标签
+
 ## shiro、spring security 对比
 
 | |shiro|spring security|
@@ -75,6 +86,10 @@ AuthenticationStrategy
 |SSO|支持|支持|
 |学习成本|低|高|
 |实例|SpringSide||
+
+## 注意
+
+- 当我们使用了 RequiresRoles 与 RequiresPermissions 注解，也就意味着您把代码写死了，这样如果数据库里的 Role 或 Permission 更改了，代码也就无效了。
 
 ## 问题
 
