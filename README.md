@@ -70,12 +70,7 @@ AuthenticationStrategy
 - 编程式
 
 ```java
-  Subject subject = SecurityUtils.getSubject();
-  if (subject.hasRole(“admin”)) {
-    //有权限
-  } else {
-    //无权限
-  }
+  Assert.isTrue(SecurityUtils.getSubject().hasRole(“admin”));
 ```
 - 注解式
 
