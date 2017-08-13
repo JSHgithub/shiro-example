@@ -85,7 +85,7 @@ AuthenticationStrategy
 字符串通配符权限
 
 ```java
- WildcardPermission.implies(Permission p)
+ WildcardPermission.implies(Permission p) // 可根据业务灵活扩展
 ```
 ## shiro、spring security 对比
 
