@@ -82,7 +82,11 @@ AuthenticationStrategy
 ```jsp
   <shiro:hasRole name="admin"></shiro:hasRole> 
 ```
+字符串通配符权限
 
+```java
+ WildcardPermission.implies(Permission p)
+```
 ## shiro、spring security 对比
 
 | |shiro|spring security|
