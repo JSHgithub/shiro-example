@@ -87,6 +87,15 @@ AuthenticationStrategy
 ```java
  WildcardPermission.implies(Permission p) // 可根据业务灵活扩展
 ```
+授权流程
+- Subject.isPermitted() 并委托给SecurityManager
+- SecurityManager 委托给 Authorizer
+- Authorizer 通过 PermissionResolver 把字符串转换成相应的 Permission 实例
+- 调用相应的 Realm 获取 Subject 相应的角色/权限用于匹配传入的角色/权限
+- Authorizer 委托给 ModularRealmAuthorizer 进行循环判断
+
+Authorizer、PermissionResolver 及 RolePermissionResolver
+
 ## shiro、spring security 对比
 
 | |shiro|spring security|
