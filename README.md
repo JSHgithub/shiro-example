@@ -70,7 +70,7 @@ AuthenticationStrategy
 - 编程式
 
 ```java
-  Assert.isTrue(SecurityUtils.getSubject().hasRole(“admin”));
+  Assert.isTrue(SecurityUtils.getSubject().hasRole("admin"));
 ```
 - 注解式
 
