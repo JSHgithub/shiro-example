@@ -97,18 +97,18 @@ AuthenticationStrategy
 ## 加密
 
 散列算法
-- Md2
-- Md5
-- Sha1
-- Sha256
-- Sha384
-- Sha512
+- MD2
+- MD5
+- SHA1
+- SHA256
+- SHA384
+- SHA512
 
 对称加密
 - AES
 - Blowfish
 
-加密密码
+加密密码服务
 - PasswordService
 - DefaultPasswordService 默认实现
 - 随机生成盐
@@ -143,3 +143,7 @@ AuthenticationStrategy
 
 - 多 Realm 应用场景
 - @RequiresRoles、@RequiresPermissions 如何工作
+
+## 说明
+
+以上部分内容摘自[张开涛的博客-跟我学shiro](http://jinnianshilongnian.iteye.com/blog/2018398)，特此说明。
