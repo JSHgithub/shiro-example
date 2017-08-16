@@ -28,8 +28,8 @@
 - Authenticator：认证器
 - Authorizer：授权器
 - Realm：1个或多个，安全数据源，由用户提供，securityManager 会按照 realms 指定的顺序进行身份认证
-- SessionManager：如果写过Servlet就应该知道Session的概念，Session呢需要有人去管理它的生命周期，这个组件就是SessionManager；而Shiro并不仅仅可以用在Web环境，也可以用在如普通的JavaSE环境、EJB等环境；所有呢，Shiro就抽象了一个自己的Session来管理主体与应用之间交互的数据；这样的话，比如我们在Web环境用，刚开始是一台Web服务器；接着又上了台EJB服务器；这时想把两台服务器的会话数据放到一个地方，这个时候就可以实现自己的分布式会话（如把数据放到Memcached服务器）；
-- SessionDAO：用于会话的 CRUD，比如想把 Session 放到 Redis 中，可以实现自己的 Redis SessionDAO；另外SessionDAO中可以使用Cache进行缓存，以提高性能
+- SessionManager：可以实现自己的分布式会话（如把数据放到 Redis 中）
+- SessionDAO：用于会话的 CRUD，可以使用Cache进行缓存，以提高性能
 - CacheManager：缓存控制器可以提高访问的性能
 - Cryptography：密码模块
 
@@ -68,8 +68,31 @@ AuthenticationStrategy
 
 授权方式
 - 编程式
+
+```java
+  Assert.isTrue(SecurityUtils.getSubject().hasRole("admin"));
+```
 - 注解式
+
+```java
+  @RequiresRoles("admin") 
+```
 - JSP 标签
+
+```jsp
+  <shiro:hasRole name="admin"></shiro:hasRole> 
+```
+字符串通配符权限
+
+```java
+ WildcardPermission.implies(Permission p) // 可根据业务灵活扩展
+```
+授权流程
+- Subject.isPermitted() 并委托给SecurityManager
+- SecurityManager 委托给 Authorizer
+- Authorizer 通过 PermissionResolver 把字符串转换成相应的 Permission 实例
+- 调用相应的 Realm 获取 Subject 相应的角色/权限用于匹配传入的角色/权限
+- Authorizer 委托给 ModularRealmAuthorizer 进行循环判断
 
 ## shiro、spring security 对比
 
