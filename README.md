@@ -138,6 +138,7 @@ AuthenticationStrategy
 ## 注意
 
 - 当我们使用了 RequiresRoles 与 RequiresPermissions 注解，也就意味着您把代码写死了，这样如果数据库里的 Role 或 Permission 更改了，代码也就无效了。
+- 验证码过滤器需要放到 Shiro 之后，因为 Shiro 将包装 HttpSession，可能造成两次的 sesison id 不一样。
 
 ## 问题
 
