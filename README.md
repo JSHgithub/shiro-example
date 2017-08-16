@@ -119,6 +119,18 @@ AuthenticationStrategy
 - 需要实现生成密码散列值的算法且和生成密码时的算法一样
 - 可以提供自己的盐
 
+## Web 集成
+
+过滤器
+- DefaultFilter
+- FormAuthenticationFilter 内置登录实现，基于表单的验证
+- AnonymousFilter
+- LogoutFilter 
+- UserFilter
+
+url 模式匹配顺序
+- 按照配置中的声明顺序
+
 ## shiro、spring security 对比
 
 | |shiro|spring security|
