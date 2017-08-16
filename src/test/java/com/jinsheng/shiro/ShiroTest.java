@@ -8,10 +8,13 @@ import org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.authz.ModularRealmAuthorizer;
 import org.apache.shiro.authz.permission.WildcardPermissionResolver;
+import org.apache.shiro.crypto.hash.DefaultHashService;
+import org.apache.shiro.crypto.hash.HashRequest;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.SimpleAccountRealm;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.ByteSource;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -72,5 +75,18 @@ public class ShiroTest extends BaseTest {
         UsernamePasswordToken token = new UsernamePasswordToken("zhang", "123");
         subject.login(token);
         Assert.assertTrue(subject.isAuthenticated());
+    }
+
+    @Test
+    public void testHash() {
+        DefaultHashService hashService = new DefaultHashService(); //默认算法SHA-512
+
+        HashRequest request = new HashRequest.Builder()
+                .setAlgorithmName("MD5")
+                .setSource(ByteSource.Util.bytes("hello"))
+                .setSalt(ByteSource.Util.bytes("123"))
+                .build();
+        String hex = hashService.computeHash(request).toHex();
+        logger.info("hash value is：{}", hex);
     }
 }
