@@ -94,6 +94,31 @@ AuthenticationStrategy
 - 调用相应的 Realm 获取 Subject 相应的角色/权限用于匹配传入的角色/权限
 - Authorizer 委托给 ModularRealmAuthorizer 进行循环判断
 
+## 加密
+
+散列算法
+- Md2
+- Md5
+- Sha1
+- Sha256
+- Sha384
+- Sha512
+
+对称加密
+- AES
+- Blowfish
+
+加密密码
+- PasswordService
+- DefaultPasswordService 默认实现
+- 随机生成盐
+
+验证密码服务
+- CredentialsMatcher
+- HashedCredentialsMatcher 散列实现
+- 需要实现生成密码散列值的算法且和生成密码时的算法一样
+- 可以提供自己的盐
+
 ## shiro、spring security 对比
 
 | |shiro|spring security|
