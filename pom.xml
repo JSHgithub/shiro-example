@@ -16,6 +16,8 @@
         <shiro.version>1.2.3</shiro.version>
         <ehcache.version>2.6.11</ehcache.version>
         <guava.version>18.0</guava.version>
+        <druid.version>1.0.29</druid.version>
+        <mysql.version>5.1.35</mysql.version>
 
         <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
 
@@ -88,6 +90,16 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
     </dependencies>
 
