@@ -128,7 +128,7 @@ AuthenticationStrategy
 - LogoutFilter 
 - UserFilter
 
-url模式匹配顺序
+url 模式匹配顺序
 - 按照配置中的声明顺序
 
 ## shiro、spring security 对比
