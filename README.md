@@ -122,6 +122,9 @@ AuthenticationStrategy
 ## Web 集成
 
 过滤器
+
+Shiro 先走自己的 Filter 体系，然后才会委托给 Servlet 容器的 FilterChain 进行 Servlet 容器级别的 Filter 链执行。
+
 - DefaultFilter
 - FormAuthenticationFilter 内置登录实现，基于表单的验证
 - AnonymousFilter
