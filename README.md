@@ -126,6 +126,7 @@ AuthenticationStrategy
 Shiro 先走自己的 Filter 体系，然后才会委托给 Servlet 容器的 FilterChain 进行 Servlet 容器级别的 Filter 链执行。
 
 - DefaultFilter
+- DefaultFilterChainManager 维护着 url 模式与拦截器链的关系
 - FormAuthenticationFilter 内置登录实现，基于表单的验证
 - AnonymousFilter
 - LogoutFilter 
