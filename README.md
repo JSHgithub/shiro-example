@@ -122,9 +122,6 @@ AuthenticationStrategy
 ## Web 集成
 
 过滤器
-
-Shiro 先走自己的 Filter 体系，然后才会委托给 Servlet 容器的 FilterChain 进行 Servlet 容器级别的 Filter 链执行。
-
 - DefaultFilter
 - DefaultFilterChainManager 维护着 url 模式与拦截器链的关系
 - FormAuthenticationFilter 内置登录实现，基于表单的验证
@@ -155,6 +152,7 @@ url 模式匹配顺序
 
 - 当我们使用了 RequiresRoles 与 RequiresPermissions 注解，也就意味着您把代码写死了，这样如果数据库里的 Role 或 Permission 更改了，代码也就无效了。
 - 验证码过滤器需要放到 Shiro 之后，因为 Shiro 将包装 HttpSession，可能造成两次的 sesison id 不一样。
+- Shiro 先走自己的 Filter 体系，然后才会委托给 Servlet 容器的 FilterChain 进行 Servlet 容器级别的 Filter 链执行。
 
 ## 问题
 
