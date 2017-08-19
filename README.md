@@ -138,7 +138,13 @@ AuthenticationStrategy
 ||PathMatchingFilter|提供了 url 模式过滤的功能|
 
 url 模式匹配顺序
-- 按照配置中的声明顺序
+
+```java
+ /bb/**=filter1  
+ /bb/aa=filter2  
+ /**=filter3 
+```
+如果请求的url是“/bb/aa”，按照配置中的声明顺序,将使用filter1进行拦截。
 
 ## shiro、spring security 对比
 
