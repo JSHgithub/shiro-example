@@ -124,10 +124,18 @@ AuthenticationStrategy
 过滤器
 - DefaultFilter
 - DefaultFilterChainManager 维护着 url 模式与拦截器链的关系
-- FormAuthenticationFilter 内置登录实现，基于表单的验证
-- AnonymousFilter
-- LogoutFilter 
-- UserFilter
+
+|拦截器名|拦截器类|说明|
+|---:|---:|---:|
+|authc|FormAuthenticationFilter|内置登录实现，基于表单的验证|
+|anon|AnonymousFilter|匿名拦截器|
+|logout|LogoutFilter|退出拦截器|
+|user|UserFilter|用户拦截器|
+|perms|PermissionsAuthorizationFilter|权限授权拦截器|
+|roles|RolesAuthorizationFilter|角色授权拦截器|
+||OncePerRequestFilter|保证一次请求只调用一次|
+||AdviceFilter|设计思想类似 SpringMVC|
+||PathMatchingFilter|提供了 url 模式过滤的功能|
 
 url 模式匹配顺序
 - 按照配置中的声明顺序
