@@ -146,6 +146,21 @@ url 模式匹配顺序
 ```
 如果请求的url是“/bb/aa”，按照配置中的声明顺序,将使用filter1进行拦截。
 
+## 会话
+
+会话：用户访问应用时保持的连接关系。
+
+Shiro 提供的会话不依赖于任何底层容器，可以独立使用，是完整的会话模块。
+
+会话监听器
+- SessionListener：监听会话创建、过期及停止事件
+- SessionListenerAdapter：只监听某一个事件
+
+会话存储/持久化
+- CachingSessionDAO：会话缓存
+- MemorySessionDAO：直接在内存中进行会话维护
+- EnterpriseCacheSessionDAO：带缓存功能的会话维护
+
 ## shiro、spring security 对比
 
 | |shiro|spring security|
