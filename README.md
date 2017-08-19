@@ -1,4 +1,4 @@
-# shiro example
+# shiro-example
 
 ## shiro 是什么?
 
