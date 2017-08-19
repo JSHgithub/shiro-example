@@ -122,7 +122,7 @@ AuthenticationStrategy
 ## Web 集成
 
 过滤器
-- DefaultFilter
+- DefaultFilter 默认拦截器，自动注册，可禁用
 - DefaultFilterChainManager 维护着 url 模式与拦截器链的关系
 
 |拦截器名|拦截器类|说明|
