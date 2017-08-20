@@ -151,12 +151,14 @@ url 模式匹配顺序
 会话
 - 用户访问应用时保持的连接关系。
 - Shiro 提供的会话不依赖于任何底层容器，可以独立使用，是完整的会话模块。
+- Shiro 提供的会话可以在普通的 JavaSE、JavaEE（如 web 应用）应用中使用，且使用方式一致。
+- 默认情况在创建 Subject 时会主动创建一个 Session。
 
 会话监听器
 - SessionListener：监听会话创建、过期及停止事件
 - SessionListenerAdapter：只监听某一个事件
 
-会话存储/持久化
+会话存储
 - CachingSessionDAO：会话缓存
 - MemorySessionDAO：直接在内存中进行会话维护
 - EnterpriseCacheSessionDAO：带缓存功能的会话维护
