@@ -247,6 +247,10 @@ url 模式匹配顺序
 - 多 Realm 应用场景
 - @RequiresRoles、@RequiresPermissions 如何工作
 
+## 参考
+
+- [RBAC新解：基于资源的权限管理(Resource-Based Access Control)](http://globeeip.iteye.com/blog/1236167)
+
 ## 说明
 
 以上部分内容摘自[张开涛的博客-跟我学shiro](http://jinnianshilongnian.iteye.com/blog/2018398)，特此说明。
