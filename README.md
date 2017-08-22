@@ -123,7 +123,7 @@ AuthenticationStrategy
 
 |拦截器名|拦截器类|说明|
 |---:|---:|---:|
-|authc|FormAuthenticationFilter|内置登录实现，基于表单的验证|
+|authc|FormAuthenticationFilter|内置登录实现，基于表单的验证，不判断 remember me|
 |anon|AnonymousFilter|匿名拦截器|
 |logout|LogoutFilter|退出拦截器|
 |user|UserFilter|用户拦截器|
@@ -178,6 +178,11 @@ url 模式匹配顺序
          return authorizationAttributeSourceAdvisor;
      }
  }
+```
+## Remember Me
+
+```java
+ UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
 ```
 
 ## shiro、spring security 对比
