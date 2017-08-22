@@ -97,12 +97,8 @@ AuthenticationStrategy
 ## 加密
 
 散列算法
-- MD2
-- MD5
-- SHA1
-- SHA256
-- SHA384
-- SHA512
+- MD2、MD5
+- SHA1、SHA256、SHA384、SHA512
 
 对称加密
 - AES
@@ -162,6 +158,27 @@ url 模式匹配顺序
 - CachingSessionDAO：会话缓存
 - MemorySessionDAO：直接在内存中进行会话维护
 - EnterpriseCacheSessionDAO：带缓存功能的会话维护
+
+## Spring 集成
+
+开启 Shiro Spring AOP 权限注解的支持
+
+```java
+ @Configuration
+ @EnableAspectJAutoProxy(proxyTargetClass=true)
+ public class ShiroSpringConfig {
+
+     @Autowired
+     private SecurityManager securityManager;
+
+     @Bean
+     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(){
+         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+         return authorizationAttributeSourceAdvisor;
+     }
+ }
+```
 
 ## shiro、spring security 对比
 
