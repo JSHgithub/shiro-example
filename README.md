@@ -85,7 +85,7 @@ AuthenticationStrategy
 字符串通配符权限
 
 ```java
- WildcardPermission.implies(Permission p) // 可根据业务灵活扩展
+  WildcardPermission.implies(Permission p) // 可根据业务灵活扩展
 ```
 授权流程
 - Subject.isPermitted() 并委托给SecurityManager
@@ -136,9 +136,9 @@ AuthenticationStrategy
 url 模式匹配顺序
 
 ```java
- /bb/**=filter1  
- /bb/aa=filter2  
- /**=filter3 
+  /bb/**=filter1  
+  /bb/aa=filter2  
+  /**=filter3 
 ```
 如果请求的url是“/bb/aa”，按照配置中的声明顺序,将使用filter1进行拦截。
 
@@ -164,25 +164,59 @@ url 模式匹配顺序
 开启 Shiro Spring AOP 权限注解的支持
 
 ```java
- @Configuration
- @EnableAspectJAutoProxy(proxyTargetClass=true)
- public class ShiroSpringConfig {
+   @Configuration
+   @EnableAspectJAutoProxy(proxyTargetClass=true)
+   public class ShiroSpringConfig {
 
-     @Autowired
-     private SecurityManager securityManager;
+       @Autowired
+       private SecurityManager securityManager;
 
-     @Bean
-     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(){
-         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
-         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
-         return authorizationAttributeSourceAdvisor;
-     }
- }
+       @Bean
+       public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(){
+           AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+           authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+           return authorizationAttributeSourceAdvisor;
+       }
+   }
 ```
 ## Remember Me
 
+记住我
+```
+  关闭并重新打开浏览器，无需登录即可再次访问
+```
+
+使用方式
+
 ```java
- UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
+  UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
+```
+
+配置
+
+```java
+  @Bean
+  public SimpleCookie rememberMeCookie() {
+      SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+      simpleCookie.setHttpOnly(true);
+      simpleCookie.setMaxAge(2592000); // 30天
+      return simpleCookie;
+  }
+
+  @Bean
+  public CookieRememberMeManager rememberMeManager() {
+      CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
+      cookieRememberMeManager.setCookie(rememberMeCookie());
+      return cookieRememberMeManager;
+  }
+
+  @Bean
+  public SecurityManager securityManager() {
+      DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+      ...
+      securityManager.setRememberMeManager(rememberMeManager());
+      return securityManager;
+  }
 ```
 
 ## shiro、spring security 对比
