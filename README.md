@@ -136,11 +136,12 @@ AuthenticationStrategy
 url 模式匹配顺序
 
 ```java
+  // 如果请求的url是“/bb/aa”，按照配置中的声明顺序，将使用filter1进行拦截
+  
   /bb/**=filter1  
   /bb/aa=filter2  
-  /**=filter3 
+  /**=filter3
 ```
-如果请求的url是“/bb/aa”，按照配置中的声明顺序,将使用filter1进行拦截。
 
 ## 会话
 
