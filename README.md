@@ -164,20 +164,20 @@ url 模式匹配顺序
 开启 Shiro Spring AOP 权限注解的支持
 
 ```java
-   @Configuration
-   @EnableAspectJAutoProxy(proxyTargetClass=true)
-   public class ShiroSpringConfig {
+  @Configuration
+  @EnableAspectJAutoProxy(proxyTargetClass=true)
+  public class ShiroSpringConfig {
 
-       @Autowired
-       private SecurityManager securityManager;
+      @Autowired
+      private SecurityManager securityManager;
 
-       @Bean
-       public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(){
-           AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
-           authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
-           return authorizationAttributeSourceAdvisor;
-       }
-   }
+      @Bean
+      public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(){
+          AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+          authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+          return authorizationAttributeSourceAdvisor;
+      }
+  }
 ```
 ## Remember Me
 
