@@ -136,7 +136,9 @@ AuthenticationStrategy
 url 模式匹配顺序
 
 ```java
-  // 如果请求的url是“/bb/aa”，按照配置中的声明顺序，将使用filter1进行拦截
+  // 使用 ShiroFilterFactoryBean 创建 shiroFilter 时，默认使用 PathMatchingFilterChainResolver 进行解析
+  // 如果多个拦截器链都匹配了当前请求 URL，PathMatchingFilterChainResolver 只返回第一个找到的拦截器链
+  // 如下：如果请求的url是“/bb/aa”，按照配置中的声明顺序，将使用filter1进行拦截
   
   /bb/**=filter1  
   /bb/aa=filter2  
