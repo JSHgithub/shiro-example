@@ -148,7 +148,11 @@ url 模式匹配顺序
 ## 会话
 
 会话
-- HTTP 协议是无状态的协议，应用需要保持用户访问时的连接关系，Java 中 HTTP 的 Session 对象用 [javax.servlet.http.HttpSession](http://lavasoft.blog.51cto.com/62575/275589) 来表示。
+- HTTP 协议是无状态的协议，应用需要保持用户访问时的连接关系，Session 与 Cookie 的作用都是为了保持访问用户与后端服务器的交互状态。
+- Cookie 可以让服务端程序跟踪客户端，如果 Cookie 很多，则无形地增加了客户端与服务端的数据传输量，而 Session 的出现正式为了解决这个问题。
+- Java 中 HTTP 的 Session 对象用 [javax.servlet.http.HttpSession](http://lavasoft.blog.51cto.com/62575/275589) 来表示。
+- Session 是将数据保存在服务端，只是通过 Cookie 传递一个 SessionID，安全性要高很多，故更适合存储用户隐私和重要的数据（购物车、客户端登录访问令牌）。
+- 精确地控制哪些应用可以操作哪些 Session 和 Cookie ，可以有效控制 Session 的安全性和 Cookie 的数量。
 - Shiro 提供的会话不依赖于任何底层容器，可以独立使用，是完整的会话模块。
 - Shiro 提供的会话可以在普通的 JavaSE、JavaEE（如 web 应用）应用中使用，且使用方式一致。
 - 默认情况在创建 Subject 时会主动创建一个 Session。
