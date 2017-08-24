@@ -176,6 +176,14 @@ url 模式匹配顺序
 
 ## Spring 集成
 
+依赖 shiro-spring
+```java
+  <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-spring</artifactId>
+      <version>${shiro.version}</version>
+  </dependency>
+```
 开启 Shiro Spring AOP 权限注解的支持
 
 ```java
