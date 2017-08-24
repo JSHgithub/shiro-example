@@ -148,7 +148,7 @@ url 模式匹配顺序
 ## 会话
 
 会话
-- HTTP 是无状态的，需要保持用户访问应用时的连接关系，Java 中 HTTP 的 Session 对象用 [javax.servlet.http.HttpSession](http://lavasoft.blog.51cto.com/62575/275589) 来表示。
+- HTTP 协议是无状态的协议，应用需要保持用户访问时的连接关系，Java 中 HTTP 的 Session 对象用 [javax.servlet.http.HttpSession](http://lavasoft.blog.51cto.com/62575/275589) 来表示。
 - Shiro 提供的会话不依赖于任何底层容器，可以独立使用，是完整的会话模块。
 - Shiro 提供的会话可以在普通的 JavaSE、JavaEE（如 web 应用）应用中使用，且使用方式一致。
 - 默认情况在创建 Subject 时会主动创建一个 Session。
