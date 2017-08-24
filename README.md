@@ -29,7 +29,7 @@
 - Authorizer：授权器
 - Realm：1个或多个，安全数据源，由用户提供，securityManager 会按照 realms 指定的顺序进行身份认证
 - SessionManager：可以实现自己的分布式会话（如把数据放到 Redis 中）
-- SessionDAO：用于会话的 CRUD，可以使用Cache进行缓存，以提高性能
+- SessionDAO：用于会话的 CRUD，可以使用 Cache 进行缓存，以提高性能
 - CacheManager：缓存控制器可以提高访问的性能
 - Cryptography：密码模块
 
@@ -56,8 +56,8 @@ Realm
 
 AuthenticationStrategy
 
-- FirstSuccessfulStrategy：返回第一个Realm身份验证成功的认证信息
-- AtLeastOneSuccessfulStrategy：返回所有Realm身份验证成功的认证信息
+- FirstSuccessfulStrategy：返回第一个 Realm 身份验证成功的认证信息
+- AtLeastOneSuccessfulStrategy：返回所有 Realm 身份验证成功的认证信息
 - AllSuccessfulStrategy：返回所有 Realm 身份验证成功的认证信息
 
 ## 授权
