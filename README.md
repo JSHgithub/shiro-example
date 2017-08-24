@@ -118,6 +118,7 @@ AuthenticationStrategy
 ## Web 集成
 
 过滤器
+- ShiroFilter 安全控制的入口点，类似于 Strut2/SpringMVC 这种 web 框架的前端控制器
 - DefaultFilter 默认拦截器，自动注册，可禁用
 - DefaultFilterChainManager 维护着 url 模式与拦截器链的关系
 
