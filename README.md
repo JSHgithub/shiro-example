@@ -10,9 +10,9 @@
 
 - Authentication：身份认证/登录
 - Authorization：授权，即权限验证
-- Session Manager：会话管理，会话可以是普通JavaSE环境的，也可以是如Web环境的
+- Session Manager：会话管理，会话可以是普通 JavaSE 环境的，也可以是如 Web 环境的
 - Cryptography：加密
-- Web Support：Web支持，可以非常容易的集成到Web环境
+- Web Support：Web 支持，可以非常容易的集成到 Web 环境
 - Caching：缓存
 - Concurrency：多线程应用的并发验证，即如在一个线程中开启另一个线程，能把权限自动传播过去
 - Testing：测试支持
@@ -24,7 +24,7 @@
 ![shiro](http://dl2.iteye.com/upload/attachment/0093/9792/9b959a65-799d-396e-b5f5-b4fcfe88f53c.png)
 
 - Subject：主体，可以是任何可以与应用交互的“用户”
-- SecurityManager：Shiro 的心脏（为什么？），相当于 SpringMVC 中的 [DispatcherServlet](https://stackoverflow.com/questions/2769467/what-is-dispatcher-servlet-in-spring)，控制所有具体的交互，管理认证、授权、会话、缓存和所有 Subject
+- SecurityManager：Shiro 的心脏，相当于 SpringMVC 中的 [DispatcherServlet](https://stackoverflow.com/questions/2769467/what-is-dispatcher-servlet-in-spring)，控制所有具体的交互，管理认证、授权、会话、缓存和所有 Subject
 - Authenticator：认证器
 - Authorizer：授权器
 - Realm：1个或多个，安全数据源，由用户提供，securityManager 会按照 realms 指定的顺序进行身份认证
