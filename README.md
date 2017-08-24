@@ -116,7 +116,14 @@ AuthenticationStrategy
 - 可以提供自己的盐
 
 ## Web 集成
-
+依赖 shiro-web
+```java
+  <dependency>  
+      <groupId>org.apache.shiro</groupId>  
+      <artifactId>shiro-web</artifactId>  
+      <version>${shiro.version}</version>  
+  </dependency> 
+```
 过滤器
 - ShiroFilter 安全控制的入口点，类似于 Strut2/SpringMVC 这种 web 框架的前端控制器
 - DefaultFilter 默认拦截器，自动注册，可禁用
